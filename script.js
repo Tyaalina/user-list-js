@@ -70,6 +70,17 @@ function displayUsers(userArray) {
 
 // Функция для фильтрации пользователей по возрасту
 function filterUsers(minAge, maxAge) {
+
+    //Если нижняя граница возраста не задана
+    if (isNaN(minAge)){
+        minAge = 0;
+    }
+
+    //Если верхняя граница возраста не задана
+    if (isNaN(maxAge)){
+        maxAge = 200;
+    }
+
     //Создание массива с пользователями, чей возраст лежит в указаном диапазоне
     const filteredUsers = users.filter(user => user.age >= minAge && user.age <= maxAge);
     //Отображение списка отфильтрованных пользователей
@@ -87,7 +98,7 @@ filterButton.addEventListener("click", () => {
     const maxAge = parseInt(document.getElementById("max-age").value);
 
     //Если значения полей возраста не пустые
-    if (!isNaN(minAge) && !isNaN(maxAge)) {
+    if (!isNaN(minAge) || !isNaN(maxAge)) {
         //Фильтруем список пользователей
         filterUsers(minAge, maxAge);
     }
