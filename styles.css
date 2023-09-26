@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+    text-align: center;
+}
+
+#filter-form {
+    margin: 20px 0;
+}
+
+label {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+input[type="number"] {
+    width: 50px;
+    padding: 5px;
+    margin-right: 10px;
+}
+
+button {
+    background-color: #666666;
+    font-weight: 600;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    padding: 8px 13px;
+    cursor: pointer;
+}
+
+#user-list {
+    list-style: url(img/person.png);
+    list-style-position: inside;
+    padding: 0;
+}
+
+li {
+    margin: 5px;
+}
