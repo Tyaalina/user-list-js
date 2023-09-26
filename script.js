@@ -90,19 +90,36 @@ function filterUsers(minAge, maxAge) {
 //Получаем элемент с кнопкой фильтрации
 const filterButton = document.getElementById("filter-button");
 
+//Получаем элемент минимального возраста
+const minAge = document.getElementById("min-age");
+//Получаем элемент максимального возраста
+const maxAge = document.getElementById("max-age");
+
 // Обработчик события для кнопки "Применить фильтр"
 filterButton.addEventListener("click", () => {
-    //Получаем значение элемента минимального возраста и переводим его в число 
-    const minAge = parseInt(document.getElementById("min-age").value);
-    //Получаем значение элемента максимального возраста и переводим его в число 
-    const maxAge = parseInt(document.getElementById("max-age").value);
+    //Получаем значение минимального возраста и переводим его в число 
+    const minAgeValue = parseInt(minAge.value);
+    //Получаем значение максимального возраста и переводим его в число 
+    const maxAgeValue = parseInt(maxAge.value);
 
     //Если значения полей возраста не пустые
-    if (!isNaN(minAge) || !isNaN(maxAge)) {
+    if (!isNaN(minAgeValue) || !isNaN(maxAgeValue)) {
         //Фильтруем список пользователей
-        filterUsers(minAge, maxAge);
+        filterUsers(minAgeValue, maxAgeValue);
     }
 });
+
+//Получаем элемент с кнопкой очистки фильтрации
+const filterCleanButton = document.getElementById("filter-clean-button");
+
+// Обработчик события для кнопки "Очистить фильтр"
+filterCleanButton.addEventListener("click", () => {
+    //Очищаем поля возраста
+    minAge.value = "";
+    maxAge.value = "";
+    //Отображение списка пользователей
+    displayUsers(users);
+})
 
 // Инициализация списка пользователей при загрузке страницы
 displayUsers(users);
