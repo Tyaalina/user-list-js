@@ -76,5 +76,22 @@ function filterUsers(minAge, maxAge) {
     displayUsers(filteredUsers);
 }
 
+//Получаем элемент с кнопкой фильтрации
+const filterButton = document.getElementById("filter-button");
+
+// Обработчик события для кнопки "Применить фильтр"
+filterButton.addEventListener("click", () => {
+    //Получаем значение элемента минимального возраста и переводим его в число 
+    const minAge = parseInt(document.getElementById("min-age").value);
+    //Получаем значение элемента максимального возраста и переводим его в число 
+    const maxAge = parseInt(document.getElementById("max-age").value);
+
+    //Если значения полей возраста не пустые
+    if (!isNaN(minAge) && !isNaN(maxAge)) {
+        //Фильтруем список пользователей
+        filterUsers(minAge, maxAge);
+    }
+});
+
 // Инициализация списка пользователей при загрузке страницы
 displayUsers(users);
