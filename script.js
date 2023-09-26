@@ -67,3 +67,6 @@ function displayUsers(userArray) {
         userList.appendChild(listItem);
     });
 }
+
+// Инициализация списка пользователей при загрузке страницы
+displayUsers(users);
