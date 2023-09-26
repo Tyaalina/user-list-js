@@ -49,3 +49,21 @@ const users = [
         email: "EmilyBlunt@rambler.ru"
     },
 ];
+
+// Функция для отображения пользователей
+function displayUsers(userArray) {
+    //Получаем элемент, в котором будет отображаться список пользователей
+    const userList = document.getElementById("user-list");
+    // Очищаем список перед отображением новых данных
+    userList.innerHTML = "";
+
+    //Для каждого элемента массива
+    userArray.forEach(user => {
+        //Создаём новый элемент списка
+        const listItem = document.createElement("li");
+        //Формируем текстовое содержимое элемента на основе данных пользователя
+        listItem.textContent = `${user.name} ${user.surname} (${user.age})`;
+        //Добавляем элемент в конец списка
+        userList.appendChild(listItem);
+    });
+}
