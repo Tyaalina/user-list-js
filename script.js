@@ -68,5 +68,13 @@ function displayUsers(userArray) {
     });
 }
 
+// Функция для фильтрации пользователей по возрасту
+function filterUsers(minAge, maxAge) {
+    //Создание массива с пользователями, чей возраст лежит в указаном диапазоне
+    const filteredUsers = users.filter(user => user.age >= minAge && user.age <= maxAge);
+    //Отображение списка отфильтрованных пользователей
+    displayUsers(filteredUsers);
+}
+
 // Инициализация списка пользователей при загрузке страницы
 displayUsers(users);
